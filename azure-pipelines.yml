@@ -52,7 +52,7 @@ steps:
 
   inputs:
 
-    containerRegistry: 'Docker'
+    containerRegistry: 'Docker Hub1'
 
     repository: 'sreemanos/gamutkart-img'
 
