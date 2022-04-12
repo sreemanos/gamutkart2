@@ -1,61 +1,31 @@
 # Maven
-
 trigger:
-
 - none
 
-
-
-pool:
-
-  name : default
-
-
+pool: Ubuntu
 
 steps:
-
 - task: Maven@3
-
   inputs:
-
     mavenPomFile: 'pom.xml'
-
     publishJUnitResults: false
-
     javaHomeOption: 'JDKVersion'
-
     mavenVersionOption: 'Default'
-
     mavenAuthenticateFeed: false
-
     effectivePomSkip: false
-
     sonarQubeRunAnalysis: false
-
     goals: 'deploy'
 
-
-
 # - task: Bash@3
-
 #   inputs:
-
 #     targetType: 'inline'
-
 #     script: |
-
 #       mvn install
-
 #       mvn deploy
 
 - task: Docker@2
-
   inputs:
-
     containerRegistry: 'Docker Hub1'
-
     repository: 'sreemanos/gamutkart-img'
-
     command: 'buildAndPush'
-
     Dockerfile: '**/Dockerfile'
